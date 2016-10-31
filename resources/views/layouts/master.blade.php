@@ -38,9 +38,9 @@
         </div>
         <div id="navbar" class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
-                <li class="active"><a href="dashboards">Escritorio</a></li>
-                <li><a href="product">Productos</a></li>
-                <li><a href="mark">Marcas</a></li>
+                      <li><a href="{{url('dashboards')}}">Escritorio</a></li>
+                      <li><a href="{{url('product')}}">Productos</a></li>
+                      <li><a href="{{url('mark')}}">Marcas</a></li>
             </ul>
 
         </div><!--/.nav-collapse -->

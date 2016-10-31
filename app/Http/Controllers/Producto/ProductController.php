@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 
 use Market\Http\Requests;
 use Market\Http\Controllers\Controller;
+use Market\Models\Product\Product;
+use Market\Models\Product\Mark;
 
 class ProductController extends Controller
 {
@@ -17,7 +19,7 @@ class ProductController extends Controller
     public function index()
     {
         //
-        $products = \Market\Models\Product\Product::
+        $products = Product::
         select('products.id','products.name as product','price','marks.name as mark')->join('marks','marks.id','=','products.marks_id')->get();
         return view('product/index')->with('products',$products);
     }
@@ -29,7 +31,7 @@ class ProductController extends Controller
      */
     public function create()
     {
-        $marks = \Market\Models\Product\Mark::pluck('name','id')->prepend('Seleccioname la Marca');
+        $marks = Mark::pluck('name','id')->prepend('Seleccioname la Marca');
         return view('product.create')->with('marks',$marks);
     }
 
@@ -41,7 +43,7 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
-        \Market\Models\Product\Product::create($request->all());
+        Product::create($request->all());
         return redirect()->route('product.index');
     }
 
@@ -64,7 +66,9 @@ class ProductController extends Controller
      */
     public function edit($id)
     {
-        //
+      $marks = Mark::pluck('name','id')->prepend('Seleccioname la Marca');
+      $products = Product::FindOrFail($id);
+      return view('product.edit', array('products'=>$products,'marks'=>$marks));
     }
 
     /**
@@ -76,7 +80,10 @@ class ProductController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+      $products = Product::FindOrFail($id);
+      $input = $request->all();
+      $products->fill($input)->save();
+      return redirect()->route('product.index');
     }
 
     /**

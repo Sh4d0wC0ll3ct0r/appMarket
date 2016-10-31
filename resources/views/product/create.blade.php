@@ -5,7 +5,7 @@
 @section('content')
 
     <ol class="breadcrumb">
-        <li><a href="{{url('dashboard')}}">Escritorio</a></li>
+        <li><a href="{{url('dashboards')}}">Escritorio</a></li>
         <li><a href="{{url('product')}}"> Productos</a></li>
         <li class="active">Nuevo Producto</li>
     </ol>
@@ -56,6 +56,11 @@
         </div>
     </div>
 
-
+    <script>
+      $("#cancelar").click(function(event)
+      {
+          document.location.href = "{{ route('product.index')}}";
+      });
+    </script>
 
 @endsection

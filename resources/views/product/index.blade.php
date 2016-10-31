@@ -7,7 +7,7 @@
     <!-- Main component for a primary marketing message or call to action -->
 
     <ol class="breadcrumb">
-        <li><a href="{{url('dashboard')}}">Escritorio</a></li>
+        <li><a href="{{url('dashboards')}}">Escritorio</a></li>
         <li class="active">Productos</li>
     </ol>
 
@@ -41,7 +41,7 @@
                                 <td>{{$product->product}}</td>
                                 <td>{{$product->price}}</td>
                                 <td>{{$product->mark}}</td>
-                                <td><a href="#">[Editar]</a> <a href="#">[Eliminar]</a></td>
+                               <td><a href="{{route('product.edit',$product->id)}}">[Editar]</a> <a href="#">[Eliminar]</a></td>
                             </tr>
                         @endforeach
                         </tbody>
