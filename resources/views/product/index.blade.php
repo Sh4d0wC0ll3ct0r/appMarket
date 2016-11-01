@@ -41,7 +41,8 @@
                                 <td>{{$product->product}}</td>
                                 <td>{{$product->price}}</td>
                                 <td>{{$product->mark}}</td>
-                               <td><a href="{{route('product.edit',$product->id)}}">[Editar]</a> <a href="#">[Eliminar]</a></td>
+                               <td><a href="{{route('product.edit',$product->id)}}">[Editar]</a>
+                                   <a href="{{route('product.show',$product->id)}}">[Eliminar]</a></td>
                             </tr>
                         @endforeach
                         </tbody>
