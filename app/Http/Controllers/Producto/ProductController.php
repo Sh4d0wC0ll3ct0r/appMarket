@@ -20,7 +20,7 @@ class ProductController extends Controller
     {
         //
         $products = Product::
-        select('products.id','products.name as product','price','marks.name as mark')->join('marks','marks.id','=','products.marks_id')->get();
+        select('products.id','products.name as product','price','marks.name as mark')->join('marks','marks.id','=','products.marks_id')->paginate(5);
         return view('product/index')->with('products',$products);
     }
 
