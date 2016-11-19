@@ -15,7 +15,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::group(['middleware'=>['web']],function(){
+Route::group(['middlewareGroup'=>['web']],function(){
   /*  route::get('usuario',function(){
         return 'Hola Mundo';
     });

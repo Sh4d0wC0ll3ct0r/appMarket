@@ -9,6 +9,8 @@ use Market\Http\Controllers\Controller;
 use Market\Models\Product\Product;
 use Market\Models\Product\Mark;
 
+use Session;
+
 class ProductController extends Controller
 {
     /**
@@ -44,6 +46,7 @@ class ProductController extends Controller
     public function store(Request $request)
     {
         Product::create($request->all());
+        Session::flash('save','Se ha creado correctamente');
         return redirect()->route('product.index');
     }
 
@@ -84,6 +87,7 @@ class ProductController extends Controller
       $products = Product::FindOrFail($id);
       $input = $request->all();
       $products->fill($input)->save();
+      Session::flash('update','Se ha actualizado creado correctamente');
       return redirect()->route('product.index');
     }
 
@@ -97,6 +101,7 @@ class ProductController extends Controller
     {
       $products = Product::FindOrFail($id);
       $products->delete();
+      Session::flash('delete','Se ha eliminado correctamente');
       return redirect()->route('product.index');
     }
 }
