@@ -8,6 +8,8 @@ use Market\Http\Requests;
 use Market\Http\Controllers\Controller;
 use Market\Models\Product\Product;
 use Market\Models\Product\Mark;
+use Market\Http\Requests\Product\ProductCreateRequest;
+use Market\Http\Requests\Product\ProductUpdateRequest;
 
 use Session;
 
@@ -43,7 +45,7 @@ class ProductController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(ProductCreateRequest $request)
     {
         Product::create($request->all());
         Session::flash('save','Se ha creado correctamente');
@@ -82,7 +84,7 @@ class ProductController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(ProductUpdateRequest $request, $id)
     {
       $products = Product::FindOrFail($id);
       $input = $request->all();

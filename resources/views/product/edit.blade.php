@@ -10,6 +10,7 @@
      <li class="active">Editar Producto</li>
    </ol>
 
+  @include('partials.messages')
 
    <div class="row">
      <div class="col-md-8">

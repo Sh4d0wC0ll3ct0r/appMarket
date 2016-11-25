@@ -10,6 +10,7 @@
         <li class="active">Nuevo Producto</li>
     </ol>
 
+    @include('partials.messages')
 
     <div class="page-header">
         <h1>Producto Nuevo </h1>
