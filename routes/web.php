@@ -15,7 +15,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::group(['middlewareGroup'=>['web']],function(){
+Route::group(['middleware'=>['web']],function(){
   /*  route::get('usuario',function(){
         return 'Hola Mundo';
     });
@@ -44,5 +44,8 @@ Route::group(['middlewareGroup'=>['web']],function(){
     //route::get('product','Producto\ProductController@index');
     route::resource('product','Producto\ProductController');
     route::get('modelweb','Desktop\DashboardController@modelweb');
+    Auth::routes();
+
+    Route::get('/home', 'HomeController@index');
 
 });
