@@ -29,7 +29,7 @@ return [
     |
     */
 
-    'host' => env('MAIL_HOST', 'smtp.gmail.com'),
+    'host' => env('MAIL_HOST', 'smtp.mailgun.org'),
 
     /*
     |--------------------------------------------------------------------------
@@ -55,11 +55,7 @@ return [
     |
     */
 
-    'from' => [
-        'address' => 'andredelgado1001@gmail.com',
-        'name' => 'andres delgado',
-    ],
-
+    'from' => ['address' => null, 'name' => null],
     /*
     |--------------------------------------------------------------------------
     | E-Mail Encryption Protocol
@@ -84,7 +80,7 @@ return [
     |
     */
 
-    'username' => env('andredelgado1001@gmail.com'),
+    'username' => env('MAIL_USERNAME'),
 
     /*
     |--------------------------------------------------------------------------
@@ -97,7 +93,7 @@ return [
     |
     */
 
-    'password' => env('cursodjango16'),
+    'password' => env('MAIL_PASSWORD'),
 
     /*
     |--------------------------------------------------------------------------
@@ -111,6 +107,6 @@ return [
     */
 
     'sendmail' => '/usr/sbin/sendmail -bs',
-    'pretend' => false,
+  /*  'pretend' => false,*/
 
 ];

@@ -40,12 +40,18 @@ Route::group(['middleware'=>['web']],function(){
 
 /*****************************************************************************/
 
+    //route::get('dashboards','Desktop\DashboardsController@index')->middleware('auth');
     route::get('dashboards','Desktop\DashboardsController@index');
+
     //route::get('product','Producto\ProductController@index');
     route::resource('product','Producto\ProductController');
     route::get('modelweb','Desktop\DashboardController@modelweb');
     Auth::routes();
 
     Route::get('/home', 'HomeController@index');
+
+    Route::group(['prefix'=>'admin','middleware'=>['auth','admin']],function (){
+              route::get('demo',['as'=>'demo','uses'=>'DemoController@index']);
+        });
 
 });
