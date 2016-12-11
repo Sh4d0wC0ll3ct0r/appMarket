@@ -20,12 +20,23 @@ class ProductController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    /*public function index()
     {
         //
         $products = Product::
         select('products.id','products.name as product','price','marks.name as mark')->join('marks','marks.id','=','products.marks_id')->paginate(5);
         return view('product/index')->with('products',$products);
+    }*/
+
+    public function index()
+    {
+        return view('product/index');
+    }
+    public function listall()
+    {
+      $products = Product::
+      select('products.id','products.name as product','price','marks.name as mark')->join('marks','marks.id','=','products.marks_id')->paginate(5);
+      return view('product/listall')->with('products',$products);
     }
 
     /**

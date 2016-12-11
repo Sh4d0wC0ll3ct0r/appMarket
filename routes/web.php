@@ -45,6 +45,7 @@ Route::group(['middleware'=>['web']],function(){
 
     //route::get('product','Producto\ProductController@index');
     route::resource('product','Producto\ProductController');
+    route::get('listall','Producto\ProductController@listall');
     route::get('modelweb','Desktop\DashboardController@modelweb');
     Auth::routes();
 
