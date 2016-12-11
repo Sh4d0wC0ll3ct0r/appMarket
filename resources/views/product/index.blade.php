@@ -42,6 +42,20 @@
     $(document).ready(function(){
         listProduct();
     });
+
+
+    $(document).on("click",".pagination li a",function(e) {
+        e.preventDefault();
+        var url = $(this).attr("href");
+        $.ajax({
+            type:'get',
+            url:url,
+            success: function(data){
+                $('#list-product').empty().html(data);
+            }
+        });
+    });
+
     $("#nuevo").click(function(event)
   {
       document.location.href = "{{ route('product.create')}}";
